@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import MealList from './components/MealList';
+import Nav from './components/Nav';
+import Burger from './components/Burger';
+import Contact from './components/Contact';
+import Recipe from './components/Recipe'
+import Purchased from './components/Purchased';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
+
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Nav />
+
+        <Routes>
+          <Route path='/' element={<MealList />} />
+          <Route path='/burger' element={<Burger />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/recipe' element={<Recipe />} />
+          <Route path='/purchased' element={<Purchased />} />
+        </Routes>
     </div>
+    </Router>
   );
 }
 
